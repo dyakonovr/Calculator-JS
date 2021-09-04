@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <h1 class="title">Calculator</h1>
+    <div class="wrapper">
+      <table class="calculator">
+        <tr class="calcalator__row upper-block">
+          <td colspan="4">
+            <input type="text" class="calculator__text calculator__expression expression" />
+          </td>
+        </tr>
+        <tr class="calcalator__row upper-block">
+          <td colspan="4">
+            <p class="calculator__text calculator__result result">0</p>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell" colspan="2">
+            <button class="calculator__btn bg-blue btn-clear" onclick="clearAll()">Clear</button>
+          </td>
+          <td class="calculator__cell" colspan="2">
+            <button class="calculator__btn bg-blue btn-delete" onclick="deleteLastSymbol()">Delete</button>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">(</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">)</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">%</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">/</button>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell">
+            <button class="calculator__btn number">1</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">2</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">3</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">*</button>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell">
+            <button class="calculator__btn number">4</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">5</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">6</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign">-</button>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell">
+            <button class="calculator__btn number">7</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">8</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn number">9</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue sign" data-value="+">+</button>
+          </td>
+        </tr>
+        <tr class="calcalator__row">
+          <td class="calculator__cell">
+            <button class="calculator__btn number">0</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn sign">.</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn" onclick="negative()">&plusmn;</button>
+          </td>
+          <td class="calculator__cell">
+            <button class="calculator__btn bg-blue result-btn" onclick="showResult()">=</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
