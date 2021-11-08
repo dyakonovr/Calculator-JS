@@ -6,6 +6,8 @@ const resultBtn = document.querySelector('.result-btn');
 let result = null;
 const signs = ["+", "-", "*", "/"];
 
+expression.focus();
+
 for (let btn of numberBtns) {
   btn.addEventListener('click', function () {
     const value = this.textContent;
@@ -13,10 +15,15 @@ for (let btn of numberBtns) {
   });
 }
 
-// expression.addEventListener('keyup', function () {
-// let str = expression.value.replaceAll(/[a-zA-Z_~`\?><;:'"${}[\]]/g, '');
-// expression.value = str.replaceAll(/(\D)\1+/g, "$1");
-// });
+expression.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) showResult();
+  else if (e.keyCode === 67) clearAll();
+});
+
+expression.addEventListener('keyup', function () {
+  let str = this.value;
+  this.value = str.replaceAll(/[a-zA-Z_~`\?><;:'"${}[\]]/g, '');
+});
 
 for (let sign of signBtns) {
   sign.addEventListener('click', function () {
@@ -29,12 +36,10 @@ for (let sign of signBtns) {
 }
 
 function showResult() {
-  // let expVal = expression.value;
-  // if (eval(expVal + ')')) {
-  //   expression.value += ')';
-  //   resultInp.textContent = Math.round((eval(expression.value)) * 100) / 100;
-  // }
-  try { resultInp.textContent = Math.round((eval(expression.value)) * 100) / 100; }
+  try {
+    let expVal = expression.value;
+    resultInp.textContent = Math.round((eval(expVal)) * 100) / 100;
+  }
   catch { alert('Некорректное выражение'); }
 }
 
@@ -51,5 +56,3 @@ function negative() {
   let lastSymbol = expression.value[expression.value.length - 1];
   if (signs.includes(lastSymbol)) expression.value += '(-'
 }
-
-    // let str = expVal.replaceAll(/[a-zA-Z_~`\?><;:'"${}[\]]/g, '');
